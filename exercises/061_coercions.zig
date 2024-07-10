@@ -55,7 +55,7 @@
 // 10. Enums coerce to a tagged union when that tagged field is a
 //     zero-length type that has only one value (like void).
 //
-// 11. Zero-bit types (like void) can be coerced into single-item
+
 //     pointers.
 //
 // The last three are fairly esoteric, but you're more than
@@ -67,7 +67,7 @@ const print = @import("std").debug.print;
 pub fn main() void {
     var letter: u8 = 'A';
 
-    const my_letter:   ???   = &letter;
+    const my_letter: ?*[1]u8 = &letter;
     //               ^^^^^^^
     //           Your type here.
     // Must coerce from &letter (which is a *u8).
